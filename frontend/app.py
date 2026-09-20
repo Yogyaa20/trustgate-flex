@@ -29,7 +29,7 @@ hr { border-color: #30363d; }
 </style>
 """, unsafe_allow_html=True)
 
-BACKEND_URL = "http://localhost:8000"
+BACKEND_URL = "https://trustgate-flex-production.up.railway.app"
 
 
 def handle_login(email: str):
@@ -84,12 +84,12 @@ with col1:
         if st.button("Reset Demo Data"):
             try:
                 from utils import api_post
-                result = requests.post("http://localhost:8000/demo/reset")
+                result = requests.post("https://trustgate-flex-production.up.railway.app/demo/reset")
                 st.success("Demo data reset — fresh state loaded")
             except Exception as e:
                 st.error(f"Reset failed: {e}")
     with rc2:
-        st.markdown("[API Documentation](http://localhost:8000/docs)")
+        st.markdown("[API Documentation](https://trustgate-flex-production.up.railway.app/docs)")
 
 with col2:
     st.subheader("System Status")
