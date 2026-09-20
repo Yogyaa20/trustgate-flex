@@ -61,8 +61,7 @@ def api_post(endpoint: str, json_data: dict):
     res.raise_for_status()
     return res.json()
 
-from datetime import datetime, timezone
-import pytz
+from datetime import datetime, timezone, timedelta
 
 def format_timestamp(ts_str: str) -> str:
     """Format ISO timestamp to human-readable."""
@@ -70,7 +69,7 @@ def format_timestamp(ts_str: str) -> str:
         dt = datetime.fromisoformat(ts_str.replace("Z", "+00:00"))
         now = datetime.now(timezone.utc)
         today = now.date()
-        yesterday = today.replace(day=today.day - 1)
+        yesterday = today - timedelta(days=1)
         dt_date = dt.date() if dt.tzinfo else dt.replace(tzinfo=timezone.utc).date()
         time_part = dt.strftime("%I:%M %p").lstrip("0")
         if dt_date == today:
