@@ -40,3 +40,10 @@ htmlcov/
 # ── Misc ───────────────────────────────────────────────
 *.log
 .ruff_cache/
+trustgate.db
+trustgate.db-shm
+trustgate.db-wal
+*.db
+venv/
+__pycache__/
+.env
